@@ -13,12 +13,13 @@ if ($conn->connect_error) {
 }
 
 // Get form data
+$admin_id = $_POST['admin_id']; // Get admin ID from the form
 $survey_title = $_POST['survey_title'];
 $survey_description = $_POST['survey_description'];
 $questions = $_POST['questions'];
 
 // Insert survey into the surveys table
-$sql = "INSERT INTO surveys (survey_title, description) VALUES ('$survey_title', '$survey_description')";
+$sql = "INSERT INTO surveys (admin_id, survey_title, description) VALUES ('$admin_id', '$survey_title', '$survey_description')";
 
 if ($conn->query($sql) === TRUE) {
     $survey_id = $conn->insert_id;

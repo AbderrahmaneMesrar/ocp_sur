@@ -14,54 +14,57 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Ensure user_id is set
-if (!isset($_SESSION['user_id'])) {
-    die("User not logged in.");
-}
-
-$user_id = $_SESSION['user_id']; // User ID from session
+// Get survey ID from the URL
 $survey_id = $_GET['survey_id'];
 
-// Fetch survey questions
-$sql = "SELECT id, question_text, question_type FROM questions WHERE survey_id = $survey_id";
-$result = $conn->query($sql);
+// Sanitize the survey ID
+$survey_id = intval($survey_id); // Convert to integer to prevent SQL injection
 
+// Prepare and execute SQL query
+$stmt = $conn->prepare("SELECT id, question_text, question_type FROM questions WHERE survey_id = ?");
+$stmt->bind_param("i", $survey_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    echo '<form action="submit_survey.php" method="POST">';
+    echo '<input type="hidden" name="survey_id" value="' . $survey_id . '">';
+    
+    while ($question = $result->fetch_assoc()) {
+        echo '<div>';
+        echo '<label>' . $question['question_text'] . '</label><br>';
+        
+        if ($question['question_type'] == 'text') {
+            echo '<input type="text" name="answers[' . $question['id'] . ']" required><br><br>';
+        } elseif ($question['question_type'] == 'radio') {
+            // Fetch radio options
+            $options_sql = "SELECT option_text FROM question_options WHERE question_id = " . $question['id'];
+            $options_result = $conn->query($options_sql);
+            
+            while ($option = $options_result->fetch_assoc()) {
+                echo '<input type="radio" name="answers[' . $question['id'] . ']" value="' . $option['option_text'] . '" required> ' . $option['option_text'] . '<br>';
+            }
+            echo '<br>';
+        } elseif ($question['question_type'] == 'multiple') {
+            // Fetch multiple-choice options
+            $options_sql = "SELECT option_text FROM question_options WHERE question_id = " . $question['id'];
+            $options_result = $conn->query($options_sql);
+            
+            while ($option = $options_result->fetch_assoc()) {
+                echo '<input type="checkbox" name="answers[' . $question['id'] . '][]" value="' . $option['option_text'] . '"> ' . $option['option_text'] . '<br>';
+            }
+            echo '<br>';
+        }
+        
+        echo '</div>';
+    }
+    
+    echo '<input type="submit" value="Submit Survey">';
+    echo '</form>';
+} else {
+    echo '<p>No questions found for this survey.</p>';
+}
+
+$stmt->close();
+$conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Survey</title>
-    <style>
-        .question { margin-bottom: 20px; }
-        .question label { display: block; margin-bottom: 5px; }
-        .question input, .question select { width: 100%; }
-    </style>
-</head>
-<body>
-    <h1>Survey</h1>
-    <form action="submit_survey.php" method="POST">
-        <input type="hidden" name="survey_id" value="<?php echo htmlspecialchars($survey_id); ?>">
-
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="question">
-                <label><?php echo htmlspecialchars($row['question_text']); ?></label>
-
-                <?php if ($row['question_type'] == 'text'): ?>
-                    <input type="text" name="answers[<?php echo htmlspecialchars($row['id']); ?>]" required>
-                <?php else: ?>
-                    <p>This question type (<?php echo htmlspecialchars($row['question_type']); ?>) requires options, which are not defined.</p>
-                <?php endif; ?>
-            </div>
-        <?php endwhile; ?>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <?php
-    $conn->close();
-    ?>
-</body>
-</html>

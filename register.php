@@ -64,6 +64,7 @@ if(isset($_POST['signInAdmin'])){
     if($result->num_rows>0){
      $row=$result->fetch_assoc();
      $_SESSION['email']=$row['email'];
+     $_SESSION['admin_id']=$row['Id'];
      header("Location: adminmainpage.php");
      exit();
     }

@@ -1,8 +1,7 @@
 <?php
 session_start(); // Ensure session is started
 
-require_once("db_con.php")
-
+require_once("db_con.php");
 
 // Debug: Check if session variable is set
 if (!isset($_SESSION['user_id'])) {
@@ -33,7 +32,7 @@ foreach ($answers as $question_id => $response) {
 $stmt->close();
 $conn->close();
 
-// Redirect or thank you page
-header('Location: thank_you.php'); // Redirect to a thank you page
+// Redirect back to the main page
+header('Location: USERmainpage.php');
 exit();
 ?>

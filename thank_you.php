@@ -6,7 +6,8 @@
     <title>Thank You</title>
 </head>
 <body>
-    <h1>Thank You for Completing the Survey!</h1>
+<h1>Thank You fo\r Completing the Survey!</h1>
+    <h1>Thank You fo\r Completing the Survey!</h1>
     <p>Your responses have been submitted successfully.</p>
     <a href="USERmainpage.php">Back to Home</a>
 </body>
