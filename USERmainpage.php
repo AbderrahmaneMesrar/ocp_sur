@@ -71,7 +71,7 @@ $user_id = $_SESSION['user_id'];
 
 <header>
     <h1>Welcome User</h1>
-    <a href="logout.php" class="logout-button">Logout</a> <!-- Logout Button -->
+    <a href="userlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
 </header>
 
 <div class="container">

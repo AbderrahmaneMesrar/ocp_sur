@@ -88,7 +88,7 @@ if (isset($_GET['delete'])) {
 <body>
     <header>
         <h1>Welcome Admin</h1>
-        <a href="logout.php" class="logout-button">Logout</a> <!-- Logout Button -->
+        <a href="adminlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
     </header>
 
     <div class="container">

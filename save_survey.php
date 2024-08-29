@@ -45,7 +45,9 @@ if ($conn->query($sql) === TRUE) {
         }
     }
 
-    echo "Survey created successfully!";
+    // Redirect to the admin main page after successful creation
+    header("Location: adminmainpage.php");
+    exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

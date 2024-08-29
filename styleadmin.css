@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f8f4; /* Light green background for the whole page */
+}
+
+header {
+    background-color: #6db75c; /* Main color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #5a9a4b; /* Slightly darker border */
+}
+
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+aside {
+    width: 25%;
+    background-color: #eaf0e1; /* Lighter green background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+    margin-right: 20px;
+}
+
+aside .button-container {
+    margin-bottom: 20px;
+}
+
+aside a.box-button {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background-color: #6db75c; /* Main color */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+aside a.box-button:hover {
+    background-color: #5a9a4b; /* Slightly darker on hover */
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin: 10px 0;
+}
+
+aside ul li a {
+    color: #6db75c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+aside ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 75%;
+}
+
+.survey-post {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.survey-post h3 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.survey-post p {
+    color: #666;
+    font-size: 1em;
+}
+
+.delete-button, .results-button {
+    background-color: #6db75c; /* Main color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #5a9a4b; /* Darker on hover */
+}
+
+.results-button {
+    background-color: #3498db; /* Blue color for results button */
+    margin-left: 10px;
+}
+
+.results-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

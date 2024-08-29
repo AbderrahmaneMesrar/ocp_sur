@@ -68,3 +68,16 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Survey </title>
+    <link rel="stylesheet" href="styletake.css">
+
+</head>
+<body>
+    
+</body>
+</html>
