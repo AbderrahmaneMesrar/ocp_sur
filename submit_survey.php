@@ -1,18 +1,18 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 
 require_once("db_con.php");
 
-// Debug: Check if session variable is set
+
 if (!isset($_SESSION['user_id'])) {
     die("User not logged in. Please log in first.");
 }
 
-$user_id = $_SESSION['user_id']; // User ID from session
+$user_id = $_SESSION['user_id']; 
 $survey_id = $_POST['survey_id'];
 $answers = $_POST['answers'];
 
-// Prepare and bind
+
 $stmt = $conn->prepare("INSERT INTO responses (survey_id, user_id, question_id, response) VALUES (?, ?, ?, ?)");
 
 foreach ($answers as $question_id => $response) {
@@ -32,7 +32,6 @@ foreach ($answers as $question_id => $response) {
 $stmt->close();
 $conn->close();
 
-// Redirect back to the main page
 header('Location: USERmainpage.php');
 exit();
 ?>

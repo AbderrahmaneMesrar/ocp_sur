@@ -2,10 +2,7 @@
 session_start();
 require_once("db_con.php");
 
-// Echo all session variables (for debugging purposes)
-// echo '<pre>'; 
-// print_r($_SESSION);
-// echo '</pre>';
+
 
 if (!isset($_SESSION['admin_id'])) {
     die("Admin not logged in. Please log in first.");
@@ -13,21 +10,20 @@ if (!isset($_SESSION['admin_id'])) {
 
 $admin_id = $_SESSION['admin_id'];
 
-// Fetch surveys created by the admin
+
 $sql = "SELECT id, survey_title, description FROM surveys WHERE admin_Id = $admin_id ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
-// Handle delete request
+// delete request
 if (isset($_GET['delete'])) {
     $survey_id = intval($_GET['delete']);
     
-    // Delete survey and associated questions/options
+    // Delete survey 
     $conn->query("DELETE FROM questions WHERE survey_id = $survey_id");
     $conn->query("DELETE FROM question_options WHERE question_id IN (SELECT id FROM questions WHERE survey_id = $survey_id)");
     $conn->query("DELETE FROM surveys WHERE id = $survey_id");
     $conn->query("DELETE FROM responses WHERE survey_id = $survey_id"); // Delete responses if needed
-    
-    // Redirect to the same page to refresh the list
+   
     header("Location: adminmainpage.php");
     exit();
 }
@@ -73,7 +69,7 @@ if (isset($_GET['delete'])) {
         .logout-button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #dc3545; /* Red color */
+            background-color: #dc3545; 
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -81,7 +77,7 @@ if (isset($_GET['delete'])) {
         }
 
         .logout-button:hover {
-            background-color: #c82333; /* Darker red on hover */
+            background-color: #c82333; 
         }
     </style>
 </head>
@@ -89,7 +85,7 @@ if (isset($_GET['delete'])) {
     <header>
     <img src="ocplogo.jpg" alt="OCPL Logo" class="logo">
         <h1>Welcome Admin</h1>
-        <a href="adminlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
+        <a href="adminlogout.php" class="logout-button">Logout</a> 
     </header>
 
     <div class="container">

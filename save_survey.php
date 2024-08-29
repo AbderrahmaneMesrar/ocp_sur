@@ -1,30 +1,19 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // Your MySQL username
-$password = ""; // Your MySQL password
-$dbname = "compact_survey_system";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once("db_con.php");
 
 // Get form data
-$admin_id = $_POST['admin_id']; // Get admin ID from the form
+$admin_id = $_POST['admin_id']; 
 $survey_title = $_POST['survey_title'];
 $survey_description = $_POST['survey_description'];
 $questions = $_POST['questions'];
 
-// Insert survey into the surveys table
+// Insert survey 
 $sql = "INSERT INTO surveys (admin_id, survey_title, description) VALUES ('$admin_id', '$survey_title', '$survey_description')";
 
 if ($conn->query($sql) === TRUE) {
     $survey_id = $conn->insert_id;
 
-    // Insert questions into the questions table
+    // Insert questions 
     foreach ($questions as $question) {
         $question_text = $conn->real_escape_string($question['text']);
         $question_type = $conn->real_escape_string($question['type']);
@@ -34,7 +23,7 @@ if ($conn->query($sql) === TRUE) {
         if ($conn->query($sql) === TRUE) {
             $question_id = $conn->insert_id;
 
-            // Insert options for multiple-choice and radio questions
+            // Insert options 
             if ($question_type === "radio" || $question_type === "multiple") {
                 foreach ($question['options'] as $option) {
                     $option_text = $conn->real_escape_string($option);
@@ -44,8 +33,6 @@ if ($conn->query($sql) === TRUE) {
             }
         }
     }
-
-    // Redirect to the admin main page after successful creation
     header("Location: adminmainpage.php");
     exit();
 } else {

@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
+
 header {
     background-color: #6db75c;
     color: white;
@@ -20,7 +20,7 @@ h1 {
     margin: 0;
 }
 
-/* Container for the Main Content */
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -30,13 +30,13 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Content Styles */
+
 main h2 {
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Answers List Styles */
+
 .answers-list {
     list-style-type: none;
     padding: 0;
@@ -50,14 +50,14 @@ main h2 {
     margin-bottom: 15px;
 }
 
-/* Strong Tags in Answers List */
+
 .answers-list strong {
     display: block;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Text inside Paragraphs */
+
 .answers-list p {
     margin: 0;
     font-size: 1em;

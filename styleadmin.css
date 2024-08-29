@@ -2,15 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f8f4; /* Light green background for the whole page */
+    background-color: #f2f8f4; 
 }
 
 header {
-    background-color: #6db75c; /* Main color */
+    background-color: #6db75c; 
     color: white;
     padding: 20px;
     text-align: center;
-    border-bottom: 4px solid #5a9a4b; /* Slightly darker border */
+    border-bottom: 4px solid #5a9a4b; 
 }
 
 .container {
@@ -20,10 +20,10 @@ header {
 
 aside {
     width: 25%;
-    background-color: #eaf0e1; /* Lighter green background */
+    background-color: #eaf0e1; 
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     margin-right: 20px;
 }
 
@@ -35,7 +35,7 @@ aside a.box-button {
     display: block;
     text-align: center;
     padding: 12px;
-    background-color: #6db75c; /* Main color */
+    background-color: #6db75c;
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -44,7 +44,7 @@ aside a.box-button {
 }
 
 aside a.box-button:hover {
-    background-color: #5a9a4b; /* Slightly darker on hover */
+    background-color: #5a9a4b; 
 }
 
 aside ul {
@@ -76,7 +76,7 @@ main {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .survey-post h3 {
@@ -91,7 +91,7 @@ main {
 }
 
 .delete-button, .results-button {
-    background-color: #6db75c; /* Main color */
+    background-color: #6db75c; 
     color: white;
     border: none;
     padding: 8px 16px;
@@ -103,22 +103,22 @@ main {
 }
 
 .delete-button:hover {
-    background-color: #5a9a4b; /* Darker on hover */
+    background-color: #5a9a4b;
 }
 
 .results-button {
-    background-color: #3498db; /* Blue color for results button */
+    background-color: #3498db; 
     margin-left: 10px;
 }
 
 .results-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #2980b9; 
 }
 
 .logout-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #dc3545; /* Red color */
+    background-color: #dc3545;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -128,5 +128,5 @@ main {
 }
 
 .logout-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333; 
 }

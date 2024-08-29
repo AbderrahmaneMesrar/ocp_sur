@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
+
 header {
     background-color: #6db75c;
     color: white;
@@ -21,7 +21,7 @@ h1 {
     font-size: 2em;
 }
 
-/* Container Styles */
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -32,7 +32,7 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Content Styles */
+
 main {
     margin-top: 20px;
 }
@@ -43,7 +43,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Respondents List Styles */
+
 .results-list {
     list-style-type: none;
     padding: 0;
@@ -66,7 +66,7 @@ h2 {
     color: #333;
 }
 
-/* Button Styles */
+
 .view-answers-button {
     background-color: #6db75c;
     color: white;
@@ -83,7 +83,7 @@ h2 {
     background-color: #5ba74b;
 }
 
-/* No Respondents Message */
+
 p {
     font-size: 1.1em;
     color: #666;

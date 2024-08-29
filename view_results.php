@@ -42,7 +42,7 @@ $respondents = $conn->query($sql);
                 <ul class="results-list">
                     <?php while($row = $respondents->fetch_assoc()): ?>
                         <?php
-                        // Fetch respondent's name (if available)
+                        // Fetch respondent's name 
                         $user_id = intval($row['user_id']);
                         $user_result = $conn->query("SELECT firstName, lastName FROM users WHERE Id = $user_id");
                         $user = $user_result->fetch_assoc();

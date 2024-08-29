@@ -63,7 +63,7 @@ session_start();
 <body>
     <h1>Create a Survey</h1>
     <form action="save_survey.php" method="POST">
-        <input type="hidden" name="admin_id" value="<?php echo $_SESSION['admin_id']; ?>"> <!-- Hidden admin_id field -->
+        <input type="hidden" name="admin_id" value="<?php echo $_SESSION['admin_id']; ?>"> 
         
         <label for="survey_title">Survey Title:</label>
         <input type="text" name="survey_title" id="survey_title" required>

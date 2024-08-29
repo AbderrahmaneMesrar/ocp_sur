@@ -16,18 +16,18 @@ header {
 }
 
 header .logo {
-    width: 100px; /* Adjust the size of the logo as needed */
+    width: 100px; 
     height: auto;
-    margin-right: 20px; /* Space between the logo and the text */
+    margin-right: 20px; 
 }
 
 header h1 {
-    flex: 1; /* Allows the h1 to take up remaining space */
+    flex: 1;
     margin: 0;
 }
 
 header .logout-button {
-    margin-left: 20px; /* Space between the header text and the logout button */
+    margin-left: 20px; 
 }
 
 .container {

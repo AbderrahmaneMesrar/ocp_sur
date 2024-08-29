@@ -15,7 +15,7 @@ $user_id = $_SESSION['user_id'];
     <title>Surveys</title>
     <link rel="stylesheet" href="pagestyle.css"> 
     <style>
-        /* Add styling for survey posts and small boxes */
+        
         .survey-post, .survey-small-box {
             background-color: #e6f2e6;
             color: black;
@@ -29,8 +29,8 @@ $user_id = $_SESSION['user_id'];
         }
 
         .survey-small-box {
-            margin: 10px 0; /* Smaller margin for completed surveys */
-            padding: 15px; /* Smaller padding for completed surveys */
+            margin: 10px 0; 
+            padding: 15px; 
         }
 
         .survey-post h3, .survey-small-box h3 {
@@ -54,7 +54,7 @@ $user_id = $_SESSION['user_id'];
         .logout-button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #dc3545; /* Red color */
+            background-color: #dc3545;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -62,7 +62,7 @@ $user_id = $_SESSION['user_id'];
         }
 
         .logout-button:hover {
-            background-color: #c82333; /* Darker red on hover */
+            background-color: #c82333;
         }
 
         header {
@@ -75,18 +75,18 @@ $user_id = $_SESSION['user_id'];
         }
 
         header .logo {
-            width: 100px; /* Adjust the size of the logo as needed */
+            width: 100px;
             height: auto;
-            margin-right: 20px; /* Space between the logo and the text */
+            margin-right: 20px; 
         }
 
         header h1 {
-            flex: 1; /* Allows the h1 to take up remaining space */
+            flex: 1; 
             margin: 0;
         }
 
         header .logout-button {
-            margin-left: 20px; /* Space between the header text and the logout button */
+            margin-left: 20px; 
         }
     </style>
 </head>
@@ -95,14 +95,14 @@ $user_id = $_SESSION['user_id'];
 <header>
     <img src="ocplogo.jpg" alt="OCPL Logo" class="logo">
     <h1>Welcome User</h1>
-    <a href="userlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
+    <a href="userlogout.php" class="logout-button">Logout</a> 
 </header>
 
 <div class="container">
     <aside>
         <h2>Completed Surveys</h2>
         <?php
-        // Fetch completed surveys for the user
+        // Fetch completed surveys 
         $completed_query = "SELECT DISTINCT s.id, s.survey_title, s.description
                             FROM surveys s
                             JOIN responses r ON s.id = r.survey_id
@@ -114,7 +114,7 @@ $user_id = $_SESSION['user_id'];
                 $description = $completed_survey['description'];
                 $description_words = explode(' ', $description);
 
-                // Limit description to 20 words
+                // Limit description
                 if (count($description_words) > 20) {
                     $description = implode(' ', array_slice($description_words, 0, 20)) . '...';
                 }
@@ -148,7 +148,7 @@ $user_id = $_SESSION['user_id'];
                 echo '<div>';
                 echo '<h3>' . $survey['survey_title'] . '</h3>';
                 echo '<p>' . $survey['description'] . '</p>';
-                echo '<p>Admin: ' . $survey['admin_last_name'] . '</p>'; // Display admin's last name
+                echo '<p>Admin: ' . $survey['admin_last_name'] . '</p>'; // show admin last name
                 echo '</div>';
                 echo '<a href="take_survey.php?survey_id=' . $survey['id'] . '" class="box-button">Take Survey</a>';
                 echo '</div>';

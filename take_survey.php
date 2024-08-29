@@ -1,18 +1,5 @@
 <?php
-session_start(); // Ensure session is started
-
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "compact_survey_system";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once("db_con.php");
 
 // Get survey ID from the URL
 $survey_id = $_GET['survey_id'];
