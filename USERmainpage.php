@@ -65,11 +65,35 @@ $user_id = $_SESSION['user_id'];
             background-color: #c82333; /* Darker red on hover */
         }
 
+        header {
+            display: flex;
+            align-items: center;
+            background-color: rgb(255, 255, 255); 
+            color: black;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header .logo {
+            width: 100px; /* Adjust the size of the logo as needed */
+            height: auto;
+            margin-right: 20px; /* Space between the logo and the text */
+        }
+
+        header h1 {
+            flex: 1; /* Allows the h1 to take up remaining space */
+            margin: 0;
+        }
+
+        header .logout-button {
+            margin-left: 20px; /* Space between the header text and the logout button */
+        }
     </style>
 </head>
 <body>
 
 <header>
+    <img src="ocplogo.jpg" alt="OCPL Logo" class="logo">
     <h1>Welcome User</h1>
     <a href="userlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
 </header>

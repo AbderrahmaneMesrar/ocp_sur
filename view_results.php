@@ -26,32 +26,8 @@ $respondents = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Results</title>
-    <link rel="stylesheet" href="pagestyle.css">
-    <style>
-        .results-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .results-list li {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .view-answers-button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .view-answers-button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" href="styleresults.css">
+    
 </head>
 <body>
     <header>

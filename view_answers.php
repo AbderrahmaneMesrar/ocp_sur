@@ -36,20 +36,8 @@ while ($q = $questions->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Answers</title>
-    <link rel="stylesheet" href="pagestyle.css">
-    <style>
-        .answers-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .answers-list li {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styleanswers.css">
+   
 </head>
 <body>
     <header>

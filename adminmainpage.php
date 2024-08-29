@@ -87,6 +87,7 @@ if (isset($_GET['delete'])) {
 </head>
 <body>
     <header>
+    <img src="ocplogo.jpg" alt="OCPL Logo" class="logo">
         <h1>Welcome Admin</h1>
         <a href="adminlogout.php" class="logout-button">Logout</a> <!-- Logout Button -->
     </header>
