@@ -93,11 +93,6 @@ if (isset($_GET['delete'])) {
             <div class="button-container">
                 <a href="create_survey.php" class="box-button">Create a Survey</a>
             </div>
-            <ul>
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-            </ul>
         </aside>
 
         <main>
