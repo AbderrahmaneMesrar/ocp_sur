@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2024 at 04:13 PM
+-- Generation Time: Aug 30, 2024 at 11:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`Id`, `firstName`, `lastName`, `email`, `password`, `AdminCode`) VALUES
-(1, 'textadmin1', 'textadmin1', 'textadmin1@admin.com', '1234', '1234');
+(1, 'textadmin1', 'textadmin1', 'textadmin1@admin.com', '1234', '1234'),
+(2, 'admintest', 'admintest', 'admintest@admin.com', '12', '12'),
+(3, 'admin1', 'admin1', 'admin1@admin.com', '12', '12');
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,18 @@ INSERT INTO `questions` (`id`, `survey_id`, `question_text`, `question_type`) VA
 (8, 3, 'mutiple choice test', 'multiple'),
 (9, 4, ' 8/23 q1 text', 'text'),
 (10, 4, '8/23 q2 radio', 'radio'),
-(11, 4, '8/23 q3 qcm', 'multiple');
+(11, 4, '8/23 q3 qcm', 'multiple'),
+(12, 5, 'q1', 'text'),
+(13, 6, 'ad', 'text'),
+(14, 7, '1234', 'text'),
+(25, 14, 'fdasdf', 'text'),
+(26, 14, 'we2', 'radio'),
+(27, 14, '2adww', 'multiple'),
+(28, 15, 'QSAS', 'text'),
+(32, 17, 'how is the text area looking', 'text'),
+(36, 19, '23', 'text'),
+(37, 19, 'we', 'multiple'),
+(38, 19, 'radio qest?', 'radio');
 
 -- --------------------------------------------------------
 
@@ -108,7 +121,18 @@ INSERT INTO `question_options` (`id`, `question_id`, `option_text`) VALUES
 (16, 10, 'option 3 radio'),
 (17, 11, 'option 1 qcm'),
 (18, 11, 'option 2 qcm'),
-(19, 11, 'option 3 qcm');
+(19, 11, 'option 3 qcm'),
+(29, 26, 'dds'),
+(30, 26, 'ffaf'),
+(31, 26, 'xxx'),
+(32, 27, '3asd'),
+(33, 27, 'gsds'),
+(34, 27, 'vvvv'),
+(47, 37, '2344'),
+(48, 37, '2233'),
+(49, 37, '555'),
+(50, 38, 'wwrad'),
+(51, 38, '2dsdfrad');
 
 -- --------------------------------------------------------
 
@@ -129,10 +153,23 @@ CREATE TABLE `responses` (
 --
 
 INSERT INTO `responses` (`id`, `survey_id`, `user_id`, `question_id`, `response`) VALUES
-(1, 4, NULL, 9, 'mhm'),
-(2, 4, NULL, 10, 'option 1 radio '),
-(3, 4, NULL, 11, 'option 1 qcm'),
-(4, 4, NULL, 11, 'option 3 qcm');
+(26, 4, 4, 11, 'option 3 qcm'),
+(36, 14, 4, 25, 'wdsdfs'),
+(37, 14, 4, 26, 'dds'),
+(38, 14, 4, 27, '3asd'),
+(39, 14, 4, 27, 'gsds'),
+(40, 14, 5, 25, 'dsfs'),
+(41, 14, 5, 26, 'dds'),
+(42, 14, 5, 27, '3asd'),
+(43, 14, 5, 27, 'vvvv'),
+(44, 15, 5, 28, 'SAqs'),
+(45, 17, 4, 32, 'lllml'),
+(54, 19, 4, 36, 'w2'),
+(55, 19, 4, 37, '2344'),
+(56, 19, 4, 37, '555'),
+(57, 19, 4, 38, 'wwrad'),
+(58, 15, 4, 28, '6kimujnyhbtgvfcxd'),
+(59, 17, 6, 32, 'its looking nice :3');
 
 -- --------------------------------------------------------
 
@@ -144,18 +181,26 @@ CREATE TABLE `surveys` (
   `id` int(11) NOT NULL,
   `survey_title` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `admin_Id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surveys`
 --
 
-INSERT INTO `surveys` (`id`, `survey_title`, `description`, `created_at`) VALUES
-(1, 'popop', 'wdpwlpdlwd', '2024-08-15 11:31:04'),
-(2, 'new test', 'test to see if the code woks ', '2024-08-19 09:02:30'),
-(3, 'survey test', 'it s test to see how it works ', '2024-08-19 12:10:46'),
-(4, '8/23/2024 test', 'this is a test for long descriptions Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem est in minus asperiores praesentium iusto nam fugiat, dolorem non ab doloribus excepturi quasi numquam cupiditate optio accusamus quibusdam autem commodi?', '2024-08-23 10:12:08');
+INSERT INTO `surveys` (`id`, `survey_title`, `description`, `created_at`, `admin_Id`) VALUES
+(1, 'popop', 'wdpwlpdlwd', '2024-08-15 11:31:04', NULL),
+(2, 'new test', 'test to see if the code woks ', '2024-08-19 09:02:30', NULL),
+(3, 'survey test', 'it s test to see how it works ', '2024-08-19 12:10:46', NULL),
+(4, '8/23/2024 test', 'this is a test for long descriptions Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem est in minus asperiores praesentium iusto nam fugiat, dolorem non ab doloribus excepturi quasi numquam cupiditate optio accusamus quibusdam autem commodi?', '2024-08-23 10:12:08', NULL),
+(5, 'test for admin id ', 'testing to see if the admin id is gonna show', '2024-08-27 13:17:01', NULL),
+(6, 'test1', 'sdwdsdwd f', '2024-08-28 09:58:11', NULL),
+(7, '12341', '1234', '2024-08-28 09:59:22', NULL),
+(14, 'dsawds', 'asdwa', '2024-08-28 12:54:57', 3),
+(15, 'sq,qsq', 'sSQSQQ', '2024-08-28 13:19:37', 3),
+(17, 'css testt', 'testing to see how the css looks like for taking the survey', '2024-08-29 09:44:46', 3),
+(19, 'fina final one', 'the final test', '2024-08-29 12:43:16', 3);
 
 -- --------------------------------------------------------
 
@@ -176,7 +221,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `firstName`, `lastName`, `email`, `password`) VALUES
-(1, 'text1', 'text1', 'text1@user.com', '1234');
+(1, 'text1', 'text1', 'text1@user.com', '1234'),
+(2, 'person1', 'person1', 'person1@user.com', '123'),
+(3, 'person2', 'person2', 'person2@user.com', '123'),
+(4, 'person3', 'person3', 'person3@user.com', '12'),
+(5, 'ado', 'adp', 'ado@user.com', '12'),
+(6, 'oz', 'ozziz', 'oz@user.com', '12');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +266,8 @@ ALTER TABLE `responses`
 -- Indexes for table `surveys`
 --
 ALTER TABLE `surveys`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `admin_Id` (`admin_Id`);
 
 --
 -- Indexes for table `users`
@@ -233,37 +284,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `Id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `question_options`
 --
 ALTER TABLE `question_options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `responses`
 --
 ALTER TABLE `responses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `surveys`
 --
 ALTER TABLE `surveys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -288,6 +339,12 @@ ALTER TABLE `responses`
   ADD CONSTRAINT `responses_ibfk_1` FOREIGN KEY (`survey_id`) REFERENCES `surveys` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `responses_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `responses_ibfk_3` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `surveys`
+--
+ALTER TABLE `surveys`
+  ADD CONSTRAINT `surveys_ibfk_1` FOREIGN KEY (`admin_Id`) REFERENCES `admins` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
